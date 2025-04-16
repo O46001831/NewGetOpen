@@ -1,0 +1,9 @@
+.gallery-image {
+    display: none;
+    max-width: 30vw;
+    min-width: 250px;
+    height: auto;
+}
+#galleryPlaceholder {
+    height: 200vh;
+}

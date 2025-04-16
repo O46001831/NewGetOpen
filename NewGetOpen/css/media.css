@@ -1,0 +1,16 @@
+/*  FOOTER  */
+@media (max-width: 860px) {
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 460px) and (max-width: 880px) {
+    .gallery-image-mediaQuery {
+        top: 65% !important;
+    }
+    .gallery-image-topOffset-mediaQuery {
+        top: 2670px !important;
+    }
+}
+

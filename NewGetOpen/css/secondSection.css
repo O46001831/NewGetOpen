@@ -1,0 +1,24 @@
+#masterChisiamo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+#chiSiamo {
+    font-size: 46px;
+}
+
+#secondSectionImage {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0s ease, transform 0s ease;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+#secondSectionOverlay, #secondSectionImage, #masterChisiamo {
+    height: 500px;
+}
