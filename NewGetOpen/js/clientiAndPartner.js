@@ -3,24 +3,34 @@ const partnerCarousel = document.getElementById('partnerCarousel');
 
 // CARICARE LE IMMAGINI DA UNA CARTELLA:
 function loadImages(carousel, folder) {
-    fetch(`./img/${folder}/`)
-        .then(response => response.text())
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const images = doc.querySelectorAll('a[href$=".jpg"], a[href$=".png"], a[href$=".gif"]');
+    fetch(`./functions/getImages.php?folder=${folder}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(imageURLs => {
+            const duplicatedImages = [];
 
-            // Duplica le immagini
-            const duplicatedImages = [...images, ...images, ...images];
+            for (let i = 0; i < 3; i++) {
+                imageURLs.forEach(imageURL => {
+                    const img = document.createElement('img');
+                    img.src = imageURL;
+                    img.classList.add('partnerlogo');
+                    duplicatedImages.push(img);
+                });
+            }
 
-            duplicatedImages.forEach(image => {
-                const img = document.createElement('img');
-                img.src = `./img/${folder}/${image.getAttribute('href')}`;
-                img.classList.add('partnerlogo');
+            duplicatedImages.forEach(img => {
                 carousel.appendChild(img);
             });
+        })
+        .catch(error => {
+            console.error('Error loading images:', error);
         });
 }
+
 loadImages(clientiCarousel, 'clienti');
 loadImages(partnerCarousel, 'partner');
 

@@ -300,7 +300,6 @@ function fillTrasparenza(array){
 }
 // FUNZIONE CHE AGGIORNA LA LINGUA:
 function updateTrasparenza(langSent){
-    console.log('chiamata update trasparenza files.js 311')
     currentLang = langSent;
     trasparenzaContainer.innerHTML = '';
     showItems();
