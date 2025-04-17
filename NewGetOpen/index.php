@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/clientiAndPartner.css">
     <link rel="stylesheet" href="css/secondSection.css">
+    <link rel="stylesheet" href="css/servizi.css">
+    <link rel="stylesheet" href="css/files.css">
     <link rel="stylesheet" href="css/scrollToTop.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/media.css">
@@ -38,6 +40,7 @@
 <script src="js/firstSection.js" defer></script> 
 <script src="js/gallery.js" defer></script> 
 <script src="js/clientiAndPartner.js" defer></script> 
+<script src="js/files.js" defer></script> 
 <script src="js/secondSection.js" defer></script> 
 <script src="js/footer.js" defer></script> 
 

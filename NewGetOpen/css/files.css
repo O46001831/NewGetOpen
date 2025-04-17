@@ -1,0 +1,140 @@
+#masterTrasparente > .element, #mater231 > .element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.PDFcontainer {
+    width: 100%;
+    max-width: 900px;
+    min-width: 600px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0 40px 0; 
+}
+.PDFcontainer > a {
+    text-decoration: none;
+}
+.downloadImage {
+    max-width: 100px;
+}
+.boxPDF {
+    max-width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.boxPDF > span {
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Dosis';
+    font-style: italic;
+    text-underline-offset: unset;
+    text-align: center;
+}
+#masterTrasparente, #mater231, #masterServizi {    
+    width: 100%;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+#masterTrasparente {
+    padding-bottom: 50px;
+}
+#trasparenzaTitle {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    background-color: #178298;
+}
+#trasparenzaContainer {
+    width: 75%;
+    min-width: 550px;
+    box-sizing: border-box;
+}
+.trasparenzaCard {
+    background-color: #7a7878;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 5px 0 !important;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+}
+.trasparenzaCard > * {
+    width: 20%;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: min(1.8vw, 16px);
+}
+#filterForm {
+    text-align: center;
+    margin: 20px;
+}
+#filterForm > label {
+    color: #7a7878;
+}
+#trasparenzaTitle, .trasparenzaCard {
+    color: white;
+}
+#filter {
+    cursor: pointer;
+}
+#errorTrasparenza {
+    text-align: center;
+    color: red;
+    padding: 30px;
+}
+#navigatorWrap {
+    width: 100%;
+    text-align: -webkit-center;
+}
+#trasparenzaNavigatorPage {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+}
+#trasparenzaNavigatorPage > * {
+    color: white;
+}
+#left, #right {
+    cursor: pointer;
+}
+#trasparenzaTitle > strong {
+    width: 20%;
+    text-align: center;
+    align-content: center;
+    font-size: min(3vw, 16px);
+}
+.downloadButton {
+    width: 5vw;
+    max-width: 50px;
+    min-width: 40px;
+}
+.linkAlDownload, #lastTableTitleElement {
+    max-width: 70px;
+}
+
+@media (max-width: 600px) {
+    #content > section > div:nth-child(7) {
+        align-items: start;
+        overflow-x: auto;
+    }
+    #content > section > div:nth-child(7) > div {
+        align-items: start;
+    }
+    .trasparenzaCard > * {
+        font-size: 0.75em;
+    }
+    .element > h1 {
+        text-align: center;
+        text-wrap: nowrap;
+    }
+}
+

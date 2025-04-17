@@ -1,0 +1,11 @@
+.secondMarginless {
+    margin: 0;
+    color: #7a7878;
+    font-size: min(10vw, 60px);
+}
+.elencop {    
+    margin: 20px 150px;
+}
+.rowelencop {
+    color: white;
+}

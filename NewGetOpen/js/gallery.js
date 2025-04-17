@@ -6,7 +6,7 @@ const carouselPlaceholder = document.querySelector('#carouselPlaceholder');
 const galleryPlaceholder = document.getElementById('galleryPlaceholder');
 const fineGalleryY = 2240;
 const offsetMaturatoTop = '1360px';
-const offsetGalleryY = calcoffsetGalleryY();
+var offsetGalleryY = calcoffsetGalleryY();
 
 
 function calcoffsetGalleryY() {
@@ -141,9 +141,9 @@ window.addEventListener('scroll', () => {
 });
 
 // FUNZIONE PER RENDERE RESPONSIVE L'ALTEZZA DI galleryPlaceholder:
-function galleryPlaceholderResponsive() {
+window.addEventListener('scroll', () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth < 900) galleryPlaceholder.style.height = '185vh'; 
+    if (windowWidth < 900) galleryPlaceholder.style.height = '185vh';
     else if (windowWidth < 1300) galleryPlaceholder.style.height = '195vh';
-}
-galleryPlaceholderResponsive();
+    else if (windowWidth >= 1300) galleryPlaceholder.style.height = '215vh';
+});
