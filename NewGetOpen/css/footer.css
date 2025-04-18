@@ -141,7 +141,7 @@ footer > * > a {
 #footerContainer {
     position: relative;
     z-index: 0;
-    width: 100%;
+    width: 100vw;
 }
 #footerPlaceholder {
     height: 330px;

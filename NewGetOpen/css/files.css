@@ -71,7 +71,7 @@
     font-size: 16px;
     box-sizing: border-box;
     text-align: center;
-    font-size: min(1.8vw, 16px);
+    font-size: min(2.5vw, 16px);
 }
 #filterForm {
     text-align: center;
@@ -120,9 +120,12 @@
 .linkAlDownload, #lastTableTitleElement {
     max-width: 70px;
 }
+#masterTrasparente > div > div.PeCTitle > h2.secondMarginless {
+    white-space: nowrap;
+}
 
 @media (max-width: 600px) {
-    #content > section > div:nth-child(7) {
+    /* #content > section > div:nth-child(7) {
         align-items: start;
         overflow-x: auto;
     }
@@ -135,6 +138,14 @@
     .element > h1 {
         text-align: center;
         text-wrap: nowrap;
+    } */
+    .PDFcontainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    #masterTrasparente > div {
+        overflow-x: auto;
+        align-items: baseline !important; 
     }
 }
 

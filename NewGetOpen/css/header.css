@@ -138,6 +138,9 @@ header.scrolled {
     left: 50%;
     transform: translate(-60%, 0);
 }
+/* #scrollToTopBtn, .PeCTitle, .scritta {
+    display: none !important;
+} */
 .scritta > a{
     text-decoration: none;
 }

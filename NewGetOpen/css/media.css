@@ -14,3 +14,16 @@
     }
 }
 
+@media (max-width: 600px) {
+    .PDFcontainer {
+        min-width: unset;
+    }
+    .boxPDF {
+        padding-bottom: 20px;
+    }
+    #filterForm {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

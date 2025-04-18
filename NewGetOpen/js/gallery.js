@@ -5,15 +5,23 @@ const firstCarousel = document.querySelector('#firstCarousel');
 const carouselPlaceholder = document.querySelector('#carouselPlaceholder');
 const galleryPlaceholder = document.getElementById('galleryPlaceholder');
 const fineGalleryY = 2240;
-const offsetMaturatoTop = '1360px';
+const offsetMaturatoTop = 1360;
 var offsetGalleryY = calcoffsetGalleryY();
+var heightDifference = calcHeightDifference();
 
+
+function calcHeightDifference() {
+    return (919 - window.innerHeight);
+}
 
 function calcoffsetGalleryY() {
     const windowWidth = window.innerWidth;
-    if (windowWidth < 470 || windowWidth > 720) return '2705px';
-    else return '2795px';
+    const diff1 = 2705 - calcHeightDifference() + (calcHeightDifference()*0.05);
+    const diff2 = 2795 - calcHeightDifference() - (calcHeightDifference()*0.05);
+    if (windowWidth < 470 || windowWidth > 720) return (diff1 + 'px');
+    else return (diff2 + 'px');
 }
+
 
 // le immagini vengono caricate via php da gallery.php
 
@@ -32,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // GESTIONE DELLE IMMAGINI:
 let currentImageIndex = 0;
-const startY = 900;
+const startY = 900 - heightDifference;
 const scrollIncrement = 200;
 const imageScrollPoints = Array.from({ length: images.length }, (_, i) => startY + (i * scrollIncrement));
 // Crea un array di 30 rotazioni casuali
@@ -49,7 +57,7 @@ window.addEventListener('scroll', () => {
 
                 images[i].style.transition = 'transform 0.3s ease-out';
                 images[i].style.position = 'fixed';
-                images[i].style.top = `${100 + translateY / 2}%`;
+                images[i].style.top = `${(100 + translateY / 2)}%`;
                 images[i].style.left = '50%';
 
                 // Applica la rotazione solo quando l'immagine raggiunge la posizione finale
@@ -97,10 +105,10 @@ window.addEventListener('scroll', () => {
         placeholder.style.height = `${textHeight + 30}px`;
         // Imposta il testo come fixed
         textAbove.style.position = 'fixed';
-        textAbove.style.top = '80px';
+        textAbove.style.top = (80 - heightDifference) + 'px';
     } else if (scrollY >= endY) {
         textAbove.style.position = 'relative';
-        textAbove.style.top = offsetMaturatoTop;     
+        textAbove.style.top = offsetMaturatoTop + 'px';     
         if (placeholder) {
             placeholder.remove();
         }
@@ -115,9 +123,11 @@ window.addEventListener('scroll', () => {
 
 
 function calcTopImages() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth < 470 || windowWidth > 720) return '50%';
-    else return '60%';
+    const windowWidth = window.innerWidth; 
+    var calcl1 = 50 - (heightDifference/15);
+    var calcl2 = 60 - (heightDifference/15);
+    if (windowWidth < 470 || windowWidth > 720) return (calcl1+'%');
+    else return (calcl2+'%');
 }
 // RIPOSIZIONA LA GALLERIA DELLE IMMAGINI DOPO AVER FINITO DI SCROLLARE
 window.addEventListener('scroll', () => {
@@ -143,7 +153,7 @@ window.addEventListener('scroll', () => {
 // FUNZIONE PER RENDERE RESPONSIVE L'ALTEZZA DI galleryPlaceholder:
 window.addEventListener('scroll', () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth < 900) galleryPlaceholder.style.height = '185vh';
-    else if (windowWidth < 1300) galleryPlaceholder.style.height = '195vh';
-    else if (windowWidth >= 1300) galleryPlaceholder.style.height = '215vh';
+    if (windowWidth < 900) galleryPlaceholder.style.height = (0.24 * heightDifference + 185) + 'vh';
+    else if (windowWidth < 1300) galleryPlaceholder.style.height = (0.24 * heightDifference + 195) + 'vh';
+    else if (windowWidth >= 1300) galleryPlaceholder.style.height = (0.24 * heightDifference + 215) + 'vh';
 });

@@ -10,7 +10,7 @@ window.addEventListener('scroll', function() {
     const scrollY = window.scrollY;
     const bottomFooter = 54;
     const startY = startYResponsive();
-    console.log(startY)
+    //console.log(startY)
     const footerHeight = footer.offsetHeight + 54;
     let placeholder = document.getElementById('footerPlaceholder');
     
