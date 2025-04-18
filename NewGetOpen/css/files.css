@@ -50,10 +50,13 @@
     box-sizing: border-box;
     background-color: #178298;
 }
-#trasparenzaContainer {
-    width: 75%;
+#trasparenzaTitle, .trasparenzaCard {
     min-width: 550px;
+}
+#trasparenzaContainer {
+    width: 100%;
     box-sizing: border-box;
+    overflow: auto;
 }
 .trasparenzaCard {
     background-color: #7a7878;
@@ -122,30 +125,5 @@
 }
 #masterTrasparente > div > div.PeCTitle > h2.secondMarginless {
     white-space: nowrap;
-}
-
-@media (max-width: 600px) {
-    /* #content > section > div:nth-child(7) {
-        align-items: start;
-        overflow-x: auto;
-    }
-    #content > section > div:nth-child(7) > div {
-        align-items: start;
-    }
-    .trasparenzaCard > * {
-        font-size: 0.75em;
-    }
-    .element > h1 {
-        text-align: center;
-        text-wrap: nowrap;
-    } */
-    .PDFcontainer {
-        flex-direction: column;
-        align-items: center;
-    }
-    #masterTrasparente > div {
-        overflow-x: auto;
-        align-items: baseline !important; 
-    }
 }
 

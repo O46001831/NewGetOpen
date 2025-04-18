@@ -21,6 +21,7 @@ const arrayLingue = {
             "#secondCarousel > div.PeCTitle > h2.first": "I NOSTRI",
             "#secondCarousel > div.PeCTitle > h2.second": "CLIENTI",
             "#masterServizi > div > div.PeCTitle > h2.secondMarginless": "RIVZI",
+            "#masterServizi > div > div.elencop > p": "<p>GetOpen offre soluzioni avanzate per la gestione dei sistemi idrici. La nostra competenza si estende dall' <span class='boldAzure'>analisi dei dati in tempo reale</span>, che fornisce una visione chiara delle dinamiche del sistema, alla <span class='boldAzure'>modellistica idraulica</span>, sia a pressione che a superficie libera e in tempo reale, per simulare e prevedere il comportamento delle reti. Siamo specializzati anche nell' <span class='boldAzure'>ottimizzazione congiunta idraulica-energetica</span> per ridurre i costi e l'impatto ambientale, e nell'implementazione di <span class='boldAzure'>sistemi di early warning</span> per garantire la sicurezza. I nostri <span class='boldAzure'>Decision Support System</span> forniscono strumenti decisionali efficaci, e la <span class='boldAzure'>progettazione di sistemi di telecontrollo</span> completa la nostra offerta per una gestione ottimale delle reti idriche.</p>",
             // MODELLO 231
             "#mater231 > div > div.PeCTitle > h2.first": "MOD",
             "#mater231 > div > div.PeCTitle > h2.secondMarginless": "ELLO 231",
@@ -55,6 +56,7 @@ const arrayLingue = {
             "#secondCarousel > div.PeCTitle > h2.first": "OUR",
             "#secondCarousel > div.PeCTitle > h2.second": "CUSTOMERS",
             "#masterServizi > div > div.PeCTitle > h2.secondMarginless": "RVICES",
+            "#masterServizi > div > div.elencop > p": "<p>GetOpen offers advanced solutions for water resource management. Our expertise extends from <span class='boldAzure'>real-time data analysis</span>, which provides a clear view of system dynamics, to <span class='boldAzure'>hydraulic modeling</span>, both pressurized and free-surface and real-time, to simulate and predict network behavior. We also specialize in <span class='boldAzure'>hydraulic-energy joint optimization</span> to reduce costs and environmental impact, and in the implementation of <span class='boldAzure'>early warning systems</span> to ensure safety. Our <span class='boldAzure'>Decision Support Systems</span> provide effective decision-making tools, and the <span class='boldAzure'>design of telecontrol systems</span> completes our offering for optimal water network management.</p>",
             // MODELLO 231
             "#mater231 > div > div.PeCTitle > h2.first": "23",
             "#mater231 > div > div.PeCTitle > h2.secondMarginless": "1 MODEL",

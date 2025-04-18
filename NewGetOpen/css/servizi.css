@@ -6,6 +6,18 @@
 .elencop {    
     margin: 20px 5vw;
 }
+.elencop > * {    
+    color: white;
+    text-align: justify;
+    font-family: Dosis;
+    font-size: clamp(16px, 1em + 1vw, 1.2em);
+    line-height: 1em
+}
+.boldAzure {
+    color: #178298;
+    font-weight: 700;
+}
+
 .rowelencop {
     color: white;
 }
