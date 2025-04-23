@@ -1,27 +1,17 @@
-.spacer {
+.horizontal-gallery-wrapper {
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2em;
-    background-color: #222;
-  }
-
-  .horizontal-gallery-wrapper {
-    height: 100vh;
-    position: relative;
     overflow: hidden;
+    position: relative;
   }
-
   .horizontal-gallery {
     display: flex;
     height: 100%;
   }
-
   .horizontal-gallery img {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transform: scale(0.9);
+    flex-shrink: 0;
+    opacity: 0.5;
+    transform: scale(0.95);
   }

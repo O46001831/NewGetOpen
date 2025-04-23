@@ -52,9 +52,15 @@ function calculateClientiOffset() {
     return -carouselWidth;
 }
 window.addEventListener('scroll', function() {
+    console.log(window.scrollY);
+    const vh = window.innerHeight;
+    const diff_vw_percentage = Math.max(0, 1500 - window.innerWidth)/100;
+    const fattoreDiVw = diff_vw_percentage*70;
     const scrollY = window.scrollY;
-    const startPartnerY = 9640;
-    const startClientiY = 8800;
+    const startPartnerY_VH = 1050 - fattoreDiVw;
+    const startClientiY_VH = startPartnerY_VH - 50;
+    const startPartnerY = startPartnerY_VH * vh * 0.01;
+    const startClientiY = startClientiY_VH * vh * 0.01;
 
     // partner
     if (scrollY >= startPartnerY) {
