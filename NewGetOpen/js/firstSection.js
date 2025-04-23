@@ -73,49 +73,47 @@ function regolaOpacitaFirstLine() {
 }
 
 function animateChangeYourMind() {
-    const scrollY = window.scrollY;
-    const startAnimation = 0;
-    const endAnimation = 360;
-    const startScale = 1.7;
-    const endScale = 1;
-    const startTopVh = 53; // top iniziale in vh
-    const endTopPx = 56; // top finale in px
-  
-    if (!changeElement) {
-      console.error("Element with class 'change' not found.");
-      return;
-    }
-  
-    if (scrollY >= startAnimation && scrollY <= endAnimation) {
-      // Calcola la proporzione di scorrimento
-      const progress = scrollY / endAnimation;
-  
-      // Calcola la scala
-      const scale = startScale - ((startScale - endScale) * progress);
-  
-      // Calcola il top in modo ibrido: da vh a px
-      // Converti l'endTopPx in vh (approssimativamente) per il calcolo intermedio
-      const windowHeight = window.innerHeight;
-      const endTopVhApprox = (endTopPx / windowHeight) * 100;
-  
-      // Interpolazione lineare tra startTopVh e endTopVhApprox
-      const interpolatedTopVh = startTopVh - ((startTopVh - endTopVhApprox) * progress);
-  
-      // Converti il vh interpolato in pixel
-      const topPx = (interpolatedTopVh * windowHeight) / 100;
-  
-      // Applica le trasformazioni
-      changeElement.style.top = topPx + 'px';
-      changeElement.style.transform = `translateX(-50%) scale(${scale})`;
-    } else if (scrollY < startAnimation) {
-      // Stato iniziale
-      changeElement.style.top = startTopVh + 'vh';
-      changeElement.style.transform = `translateX(-50%) scale(${startScale})`;
-    } else {
-      // Stato finale
-      changeElement.style.top = endTopPx + 'px';
-      changeElement.style.transform = `translateX(-50%) scale(${endScale})`;
-    }
+  const scrollY = window.scrollY;
+  const startAnimation = 0;
+  const endAnimation = 360;
+  const startScale = 1.7;
+  const endScale = 1;
+  const startTopVh = 51; // top iniziale in vh
+  const endTopPx = 56; // top finale in px
+
+  if (!changeElement) {
+    console.error("Element with class 'change' not found.");
+    return;
+  }
+
+  if (scrollY >= startAnimation && scrollY <= endAnimation) {
+    // Calcola la proporzione di scorrimento
+    const progress = scrollY / endAnimation;
+
+    // Calcola la scala
+    const scale = startScale - (startScale - endScale) * progress;
+
+    // Calcola il top finale in vh
+    const windowHeight = window.innerHeight;
+    const endTopVh = (endTopPx / windowHeight) * 100;
+
+    // Interpolazione lineare tra startTopVh e endTopVh
+    const interpolatedTopVh = startTopVh - (startTopVh - endTopVh) * progress; // Usiamo endTopVh
+
+    // Applica le trasformazioni (in vh)
+    changeElement.style.top = interpolatedTopVh + 'vh';
+    changeElement.style.transform = `translateX(-50%) scale(${scale})`;
+  } else if (scrollY < startAnimation) {
+    // Stato iniziale
+    changeElement.style.top = startTopVh + 'vh';
+    changeElement.style.transform = `translateX(-50%) scale(${startScale})`;
+  } else {
+    // Stato finale
+    const windowHeight = window.innerHeight;
+    const endTopVh = (endTopPx / windowHeight) * 100;
+    changeElement.style.top = endTopVh + 'vh';
+    changeElement.style.transform = `translateX(-50%) scale(${endScale})`;
+  }
 }
 
 function animateLine() {
@@ -134,24 +132,23 @@ function animateLine() {
     // Calcola la proporzione di scorrimento (da 0 a 1) nell'intervallo desiderato
     const progress = scrollY / (endAnimation - startAnimation); // Semplificato perché startAnimation è 0
 
-    // Calcola il top in modo ibrido:
+    // Calcola il top finale in vh
     const windowHeight = window.innerHeight;
     const endTopVh = (endTopPx / windowHeight) * 100;
 
     // Interpolazione lineare tra startTopVh e endTopVh
     const interpolatedTopVh = startTopVh + (endTopVh - startTopVh) * progress;
 
-    // Converti il vh interpolato in pixel
-    const topPx = (interpolatedTopVh * windowHeight) / 100;
-
-    // Applica le trasformazioni
-    firstLine.style.top = topPx + 'px';
+    // Applica le trasformazioni (in vh)
+    firstLine.style.top = interpolatedTopVh + 'vh';
   } else if (scrollY < startAnimation) {
     // Stato iniziale
     firstLine.style.top = startTopVh + 'vh';
   } else {
-    // Stato finale
-    firstLine.style.top = endTopPx + 'px';
+    // Stato finale (in vh)
+    const windowHeight = window.innerHeight;
+    const endTopVh = (endTopPx / windowHeight) * 100;
+    firstLine.style.top = endTopVh + 'vh';
   }
 }
 

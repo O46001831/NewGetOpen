@@ -28,7 +28,7 @@
         left: 50%;
         transform: translateX(-50%);
     }
-    .PeCTitle {
+    #masterTrasparente > .element > .PeCTitle {
         position: relative;
         left: -5vw;
         margin-left: 0;

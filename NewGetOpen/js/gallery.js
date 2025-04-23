@@ -4,14 +4,19 @@ const firstCarousel = document.querySelector('#firstCarousel');
 //const secondCarousel = document.querySelector('#secondCarousel');
 const carouselPlaceholder = document.querySelector('#carouselPlaceholder');
 const galleryPlaceholder = document.getElementById('galleryPlaceholder');
-const fineGalleryY = 2240;
-const offsetMaturatoTop = 1360;
-var offsetGalleryY = calcoffsetGalleryY();
-var heightDifference = calcHeightDifference();
+const fineGalleryY = (2240 / window.innerHeight) * 100;
+const offsetMaturatoTop = 76 + (18 * Math.floor((1418 - window.innerHeight) / 100))
+var offsetGalleryY = 294 + ((919 - window.innerHeight) / 100)*29;
+var heightDifference = calcHeightDifferenceVH();
 
 
 function calcHeightDifference() {
     return (919 - window.innerHeight);
+}
+function calcHeightDifferenceVH() {
+    const pixelDiff = 919 - window.innerHeight;
+    const vhValue = (pixelDiff / window.innerHeight) * 100;
+    return vhValue;
 }
 
 function calcoffsetGalleryY() {
@@ -88,8 +93,8 @@ if (window.scrollY >= imageScrollPoints[0]) { // Mostra la prima immagine all'av
 
 // GESTIONE DEL TESTO SOPRA IL BOX IMMAGINI:
 window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const startY = 885;
+    const scrollY = (window.scrollY / window.innerHeight) * 100;
+    const startY = (890 / window.innerHeight) * 100;
     const endY = fineGalleryY;
     let placeholder = document.getElementById('textAbovePlaceholder');
 
@@ -105,10 +110,11 @@ window.addEventListener('scroll', () => {
         placeholder.style.height = `${textHeight + 30}px`;
         // Imposta il testo come fixed
         textAbove.style.position = 'fixed';
-        textAbove.style.top = (80 - heightDifference) + 'px';
+        textAbove.style.top = (((80 / window.innerHeight) * 100) - heightDifference) + 'vh';
     } else if (scrollY >= endY) {
         textAbove.style.position = 'relative';
-        textAbove.style.top = offsetMaturatoTop + 'px';     
+        let heightOffset = (calcHeightDifference()/100)*2.5;
+        textAbove.style.top = offsetMaturatoTop + heightOffset + 'vh';     
         if (placeholder) {
             placeholder.remove();
         }
@@ -120,8 +126,6 @@ window.addEventListener('scroll', () => {
         textAbove.style.position = 'unset';
     }
 });
-
-
 function calcTopImages() {
     const windowWidth = window.innerWidth; 
     var calcl1 = 50 - (heightDifference/15);
@@ -129,16 +133,21 @@ function calcTopImages() {
     if (windowWidth < 470 || windowWidth > 720) return (calcl1+'%');
     else return (calcl2+'%');
 }
+
 // RIPOSIZIONA LA GALLERIA DELLE IMMAGINI DOPO AVER FINITO DI SCROLLARE
 window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
+    const scrollY = (window.scrollY / window.innerHeight) * 100;
     const scrollThreshold = fineGalleryY;
 
     if (scrollY >= scrollThreshold) {
         const galleryImages = document.querySelectorAll('.gallery-image');
         galleryImages.forEach(img => {
             img.style.position = 'absolute';
-            img.style.top = offsetGalleryY;
+            // devo aggiungere 25vh ogni 100hdifference
+            let heightOffset = (calcHeightDifference()*0.01)*(15);
+            let offsetRangeX = 0;
+            if (windowWidth >= 470 && windowWidth <= 720) offsetRangeX = 9;
+            img.style.top = offsetMaturatoTop + heightOffset + offsetRangeX + 146 + 'vh';
         });
     } else {
         // Resetta gli stili se lo scroll è inferiore alla soglia
@@ -153,7 +162,9 @@ window.addEventListener('scroll', () => {
 // FUNZIONE PER RENDERE RESPONSIVE L'ALTEZZA DI galleryPlaceholder:
 window.addEventListener('scroll', () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth < 900) galleryPlaceholder.style.height = (0.24 * heightDifference + 185) + 'vh';
-    else if (windowWidth < 1300) galleryPlaceholder.style.height = (0.24 * heightDifference + 195) + 'vh';
-    else if (windowWidth >= 1300) galleryPlaceholder.style.height = (0.24 * heightDifference + 215) + 'vh';
+    // devo aggiungere 25vh ogni 100hdifference
+    let heightOffset = (calcHeightDifference()/100)*25;
+    if (windowWidth < 900) galleryPlaceholder.style.height = (0.24 * heightDifference + 185 + heightOffset) + 'vh';
+    else if (windowWidth < 1300) galleryPlaceholder.style.height = (0.24 * heightDifference + 195 + heightOffset) + 'vh';
+    else if (windowWidth >= 1300) galleryPlaceholder.style.height = (0.24 * heightDifference + 215 + heightOffset) + 'vh';
 });
