@@ -48,7 +48,7 @@ preferenzeBtn.style.display = 'none';
 
 // PER IL PUNTO IN CUI FAR PARTIRE IL FOOTER DEVO CONSIDERARE LA SOMMA DELLE ALTEZZE DI TUTTI I BLOCCHI
 function calcDocumentHeight() {
-    const altezzaProvvisioriaFinoATrasparenza = 0;
+    const altezzaProvvisioriaFinoATrasparenza = 100;
     var master231Height = document.getElementById('mater231').offsetHeight;
     var altezzaTrasparenzaHeight = document.querySelector('#masterTrasparente > div').offsetHeight;
     var altezzaImmagineHeight = document.querySelector('#masterChisiamo').offsetHeight;
@@ -57,7 +57,7 @@ function calcDocumentHeight() {
     var firstCarouselHeight = document.querySelector('#firstCarousel').offsetHeight;
     var galleryPlaceholderHeight = document.querySelector('#galleryPlaceholder').offsetHeight;
     var firstSectionTextBelowHeight = document.querySelector('#firstSectionTextBelow').offsetHeight;
-    var masterGetopenHeight = 100;//document.querySelector('#masterGetopen').offsetHeight;
+    var masterGetopenHeight = document.querySelector('#masterGetopen').offsetHeight;
     var fullHeight = altezzaProvvisioriaFinoATrasparenza + altezzaTrasparenzaHeight + altezzaImmagineHeight + master231Height +     
                         masterServiziHeight + secondCarouselHeight + firstCarouselHeight + galleryPlaceholderHeight +
                         firstSectionTextBelowHeight + masterGetopenHeight;

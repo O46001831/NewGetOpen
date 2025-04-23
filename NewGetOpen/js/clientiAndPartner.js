@@ -53,8 +53,8 @@ function calculateClientiOffset() {
 }
 window.addEventListener('scroll', function() {
     const scrollY = window.scrollY;
-    const startPartnerY = 320;
-    const startClientiY = 550;
+    const startPartnerY = 9640;
+    const startClientiY = 8800;
 
     // partner
     if (scrollY >= startPartnerY) {

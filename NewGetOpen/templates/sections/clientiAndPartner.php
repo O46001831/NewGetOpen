@@ -1,3 +1,4 @@
+<div id='galleryPlaceholder'></div>
 <div id='firstCarousel' class="carousel-container">
     <div class='PeCTitle'>
         <h2 class='first'>I NOSTRI</h2>
