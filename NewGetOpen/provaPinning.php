@@ -2,102 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pin + Scroll Horizontal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Animation on Scroll</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 200vh; /* Aggiungiamo più spazio per lo scroll */
       background: #111;
+      font-family: 'Arial', sans-serif;
       color: white;
       overflow-x: hidden;
     }
 
-    .spacer {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2em;
-      background-color: #222;
-    }
-
-    .horizontal-gallery-wrapper {
-      height: 100vh;
+    .content {
       position: relative;
-      overflow: hidden;
+      z-index: 10;
+      padding: 50px 20px;
+      text-align: center;
+      font-size: 2em;
+      margin-top: 75vh;
     }
 
-    .horizontal-gallery {
-      display: flex;
-      height: 100%;
+    .text-wrapper {
+      display: inline-block;
     }
 
-    .horizontal-gallery img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      opacity: 0;
-      transform: scale(0.9);
+    .letter {
+      display: inline-block;
+      opacity: 0; /* Partiamo con opacità 0 per ogni lettera */
+      transform: translateY(20px); /* Spostiamo la lettera verso il basso per un effetto di animazione */
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
   </style>
 </head>
 <body>
 
-  <div class="spacer">Scroll down to start →</div>
-
-  <section class="horizontal-gallery-wrapper">
-    <div class="horizontal-gallery" id="gallery">
-      <img src="./img/gallery/1.jpg" class="gallery-image" alt="img1">
-      <img src="./img/gallery/2.jpg" class="gallery-image" alt="img2">
-      <img src="./img/gallery/3.jpg" class="gallery-image" alt="img3">
-      <img src="./img/gallery/4.jpg" class="gallery-image" alt="img4">
-      <img src="./img/gallery/5.jpg" class="gallery-image" alt="img5">
-      <img src="./img/gallery/6.jpg" class="gallery-image" alt="img6">
+  <div class="content">
+    <div class="text-wrapper">
+      <span class="letter">H</span>
+      <span class="letter">e</span>
+      <span class="letter">l</span>
+      <span class="letter">l</span>
+      <span class="letter">o</span>
+      <span class="letter"> </span>
+      <span class="letter">W</span>
+      <span class="letter">o</span>
+      <span class="letter">r</span>
+      <span class="letter">l</span>
+      <span class="letter">d</span>
     </div>
-  </section>
+    <p>Scorri per vedere l'animazione delle lettere!</p>
+  </div>
 
-  <div class="spacer">That's it! 🎉</div>
-
-  <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
   <script>
-    gsap.registerPlugin(ScrollTrigger); // Registriamo il plugin ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
 
-    const gallery = document.querySelector('#gallery');
-    const images = gsap.utils.toArray('.gallery-image');
-    const totalWidth = images.length * window.innerWidth;
+    // Selezioniamo tutte le lettere
+    const letters = document.querySelectorAll('.letter');
 
-    // Scroll orizzontale con ID per usarlo nel containerAnimation
-    ScrollTrigger.create({
-      id: "horizontalScroll", // Assegniamo un ID per usarlo più tardi
-      trigger: ".horizontal-gallery-wrapper",
-      start: "top top",
-      end: () => `+=${totalWidth}`,
-      pin: true,
-      scrub: true,
-      anticipatePin: 1,
-      animation: gsap.to(gallery, {
-        x: () => `-${totalWidth - window.innerWidth}px`,
-        ease: "none"
-      })
-    });
-
-    // Animazione delle immagini quando entrano da sinistra
-    images.forEach((img, i) => {
-      gsap.to(img, {
-        opacity: 1,
-        scale: 1,
-        scrollTrigger: {
-          trigger: img,
-          containerAnimation: ScrollTrigger.getById("horizontalScroll"), // Referenziamo l'ID dell'animazione orizzontale
-          start: `left left`,
-          end: `right left`,
-          scrub: true
-        }
-      });
+    // Creiamo un'animazione per ogni lettera
+    letters.forEach((letter, index) => {
+      gsap.fromTo(letter, 
+        {
+          opacity: 0, // Partiamo con opacità 0
+          y: 20 // Partiamo spostati verso il basso
+        }, 
+        {
+          opacity: 1, // Diventa visibile
+          y: 0, // Torna alla sua posizione originale
+          scrollTrigger: {
+            trigger: letter, // Attiviamo l'animazione per ogni lettera individualmente
+            start: "top 60%", // Quando la lettera entra nel 80% inferiore della viewport
+            end: "top 40%", // Quando esce dal 20% superiore della viewport
+            scrub: true, // Sincronizza con lo scroll
+            markers: false, // Disattiva i marker per la visualizzazione durante il debug
+            delay: index * 0.05 // Ogni lettera ha un ritardo incrementale
+          }
+        });
     });
   </script>
+
 </body>
 </html>

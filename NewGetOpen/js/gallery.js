@@ -57,17 +57,14 @@ function setupGalleryScroll() {
   // Fade in & scale effect for each image
   images.forEach((img, i) => {
     const diffOffset = Math.max(0, window.innerWidth-700)
-    console.log(diffOffset)
     var dinamicNumber = (-0.0025*diffOffset)+1;
     if (window.innerWidth >= 1500) dinamicNumber = -1;
-    console.log(dinamicNumber)
+    else if (window.innerWidth <= 400) dinamicNumber = 1.2;
     const h_offset = window.innerHeight*(dinamicNumber);
     const start = i * viewportWidth;
     const end = (i + 1) * viewportWidth;
-    const before_height_px = document.getElementById('masterGetopen').offsetHeight + document.getElementById('firstSectionTextBelow').offsetHeight; 
-    const before_height_vh = (before_height_px / window.innerHeight) * 100;
-    console.log('immagine ' + i + ' inizia a ' + (h_offset+start))
-    console.log('immagine ' + i + ' finisce a ' + (h_offset+end))
+    // const before_height_px = document.getElementById('masterGetopen').offsetHeight + document.getElementById('firstSectionTextBelow').offsetHeight; 
+    // const before_height_vh = (before_height_px / window.innerHeight) * 100;
     gsap.to(img, {
       opacity: 1,
       scale: 1,

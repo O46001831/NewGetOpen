@@ -4,6 +4,7 @@ const firstSectionParagraph = document.querySelector('.change');
 const changeElement = document.querySelector('.change');
 const firstLine = document.querySelector('#firstLine');
 const body = document.body;
+const textBlock = document.querySelector('#firstSectionTextBelow');
 const firstSectionTextBelow = document.querySelector('#firstSectionTextBelow > h3');
 const startBGcolor = '#d7e6e9';
 const endBGcolor = 'rgb(37, 37, 37)';
@@ -227,3 +228,27 @@ window.addEventListener('scroll', animateLine);
 window.addEventListener('scroll', animateLineOpacity);
 
 
+
+const h3Height = textBlock.offsetHeight;
+console.log(h3Height)
+window.addEventListener('scroll', () => {
+  const scrollY_vh = (window.scrollY/window.innerHeight)*100;
+  const padding = 25;
+  const start_vh = 30;
+  const end_vh = 60;
+
+  if (scrollY_vh <= start_vh) {
+    textBlock.style.opacity = 0;
+    textBlock.style.height = 0;
+    textBlock.style.padding = 0;
+  } else if (scrollY_vh >= end_vh) {
+    textBlock.style.opacity = 1;
+    textBlock.style.height = h3Height;
+    textBlock.style.padding = padding+'px 0';
+  } else {
+    const progress = (scrollY_vh - start_vh) / (end_vh - start_vh); // da 0 a 1
+    textBlock.style.opacity = progress;
+    textBlock.style.height = h3Height - (h3Height*(1 - progress)) + 'px';
+    textBlock.style.padding = (padding - (padding*(1-progress)))+'px 0';
+  }
+});

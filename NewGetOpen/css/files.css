@@ -105,6 +105,13 @@
 }
 #trasparenzaNavigatorPage > * {
     color: white;
+    font-family: Dosis;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.3em;
+}
+#currentPage {
+    color: #178298;
 }
 #left, #right {
     cursor: pointer;
