@@ -14,7 +14,7 @@ const numberOfImmages = 5;
 function handleScroll() {
     const scrollY = window.scrollY;
     const progress = scrollY / scrollThreshold;
-    console.log(scrollY);
+    // console.log(scrollY);
     const scrittaStartPercentageCalculated = scrittaStartPercentageStart - ((scrittaStartPercentageStart - scrittaStartPercentageEnd) * progress);
     requestAnimationFrame(() => {
         if (scrollY >= 0 && scrollY < scrollThreshold) {
