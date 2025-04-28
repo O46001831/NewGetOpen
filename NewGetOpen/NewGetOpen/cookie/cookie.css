@@ -1,0 +1,345 @@
+/*__________________ COOKIE BANNER _______________________*/ 
+.likeAElement {
+    display: inline; 
+    cursor: pointer; 
+    text-decoration: underline; 
+    color: blue;
+}
+.white {
+    color: white;
+}
+.scritteContainer > p > p> .likeAElement {
+    color: white;
+}
+#cookie-banner {
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background-color: #000;
+    color: #fff !important;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 10000000000;
+}
+.scritteContainer > p {
+    text-align: start;
+    font-size: 14px;
+}
+.scritteContainer > p  > a {
+    color: #cfcdcd;
+}
+.buttonContainer {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.rifiutaAccettaContainer {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+#moreBtn, #rifiutaBtn, #accettaBtn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    border: 0;
+    transition: all .3s ease;
+}
+#moreBtn {
+    background-color: #2a2a2a;
+}
+#rifiutaBtn, #accettaBtn {
+    background-color: #0073ce;
+}
+#moreBtn:hover {
+    background-color: #1a1a1a;
+}
+#rifiutaBtn:hover, #accettaBtn:hover {
+    background-color: #0056b3;
+}
+/*_______________  MODALE PREFERENZA COOKIE _____________________*/
+.modal {
+    display: none; /* Nascondiamo la modale inizialmente */
+    position: fixed;
+    left: 0;
+    top: 0vh !important;
+    width: 100%;
+    height: 101vh !important;
+    overflow-x: hidden;
+    overflow-y: visible;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 1000000;
+    padding-top: 0 !important;
+}
+.modal-content {
+    background-color: #fefefe;
+    color: black;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;    
+    display: flex;
+    flex-direction: column;
+}
+.modal-content p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+#cookieModal > div > div.topCookieModal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+#cookieModal > div > div.topCookieModal > button.closeCookieModal {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    transition: all .1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cookieModal > div > div.topCookieModal > button.close:hover {
+    border-color: black;
+}
+.pPolicyButton {    
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+    border-radius: 20px;
+    padding: 20px 20px;
+}
+.pPolicyButton:hover {
+    border: 1px solid black;
+    background-color: white;
+}
+#cookieModal > div > h2 {
+    font-weight: 700;
+    font-size: 48px;
+}
+#cookieModal > div > h3 {
+    font-size: 22px;
+    font-weight: 700;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 20px;
+}
+.rifiutaAccettaContainerModal {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    min-width: 250px;
+}
+#rifiutaBtnModal {
+    margin-right: 20px;
+}
+#rifiutaBtnModal, #accettaBtnModal {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #3c3c3c;
+    background-color: #ededed;
+    cursor: pointer;
+    border: 1px solid #ededed;
+    border-radius: 25px;
+    transition: all .2s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#rifiutaBtnModal:hover, #accettaBtnModal:hover {
+    background-color: white;
+    border-radius: #3c3c3c;
+}
+#rifiutaBtnModal > svg, #accettaBtnModal > svg {
+    margin-left: -10px;
+    margin-right: 10px;
+}
+.necessari, .esperienza {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+#cookieModal > div > div.necessari > label {
+    margin-left: 34px;
+}
+#cookieModal > div > div.esperienza > label {
+    margin-left: 25px;
+}
+
+#cookieModal > div > div.necessari > label > span {
+    opacity: .35;
+}
+.buttonSaveContainer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+#savePreferences {
+    background-color: #0073ce;
+    color: white;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+    width: 33%;
+    min-width: 200px;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 50px;
+    transition: all .3s ease;
+}
+#savePreferences:hover {
+    background-color: #0059a1;
+}
+.selectedBtn {
+    border: 1px solid #0059a1 !important;
+}
+/*_______________  MOREBTN  _____________________*/
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    width: 50px; /* Larghezza della checkbox */
+    height: 26px; /* Altezza della checkbox */
+    cursor: pointer;
+}
+.checkbox-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 26px; /* Per fare la forma tonda */
+}
+.checkbox-input {
+    display: none; /* Nascondiamo l'input checkbox di default */
+}
+.checkbox-input:checked + .checkbox-slider {
+    background-color: #2196F3; /* Colore di sfondo quando è selezionato */
+}
+.checkbox-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px; /* Altezza del cursore */
+    width: 20px; /* Larghezza del cursore */
+    left: 3px; /* Posizione iniziale del cursore */
+    bottom: 3px; /* Posizione iniziale del cursore */
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%; /* Per fare il cursore tondo */
+}
+.checkbox-input:checked + .checkbox-slider:before {
+    transform: translateX(24px); /* Spostiamo il cursore a sinistra */
+}
+/*_______________  MODALE PREFERENZA COOKIE e PRIVACY _____________________*/
+#privacyPolicyModal, #cookiePolicyModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 1000000;
+}
+.modal-content {
+    background-color: #fefefe;
+    color: black;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;    
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+#closePrivacyPolicyModal, #closeCookiePolicyModal {
+    position: relative;
+    left: 99%;
+    top: -14px;
+    width: fit-content;
+    border: 1px solid lightgrey;
+    border-radius: 50px;
+    padding: 0px 5px;
+    display: flex;
+    align-items: revert-layer;
+    justify-content: left;
+    cursor: pointer;
+}
+/* larghzza del checkbox dei cookie settings */
+#cookieModal > div > div.necessari > label > span, #cookieModal > div > div.esperienza > label > span {
+    width: 50px;
+}
+.footerLinksContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+#footerPrivacyPolicy, #footerCookiePolicy {
+    cursor: pointer;
+    transition: all .3s ease;
+}
+#footerPrivacyPolicy:hover, #footerCookiePolicy:hover {
+    /*color: orange;  CHANGE COLOR */
+    transform: scale(1.2);
+}
+
+
+
+.info{        
+    position: relative;
+    bottom: -42%;
+}
+.info > div {
+    margin: 5px 0;
+    font-size: 12px;
+    color: black;
+}
+
+@media (max-width: 548px){
+    #preferenze {
+        padding: 10px 20px !important;
+    }
+    .rifiutaAccettaContainerModal {
+        justify-content: space-around;
+    }
+}
+@media (max-width: 600px){
+    /* Cookie Banner */
+    #cookie-banner > div.buttonContainer {
+        flex-direction: column;
+        align-items: center;
+        height: 90px;
+    }
+}
+@media (max-width: 800px){
+    /* Cookie Settings */
+    .pPolicyButton {
+        width: 60% !important;
+    }
+}

@@ -1,0 +1,42 @@
+/*  FOOTER  */
+@media (max-width: 860px) {
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 460px) and (max-width: 880px) {
+    .gallery-image-mediaQuery {
+        top: 65% !important;
+    }
+    .gallery-image-topOffset-mediaQuery {
+        top: 2670px !important;
+    }
+}
+
+@media (max-width: 601px) {
+    .PDFcontainer {
+        flex-direction: column;
+        align-items: center;
+        min-width: unset;
+    }
+    .boxPDF {
+        padding-bottom: 20px;
+    }
+    #filterForm {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #masterTrasparente > .element > .PeCTitle {
+        position: relative;
+        left: -5vw;
+        margin-left: 0;
+    }
+    .PeCTitle > h2 {
+        font-size: min(7vw, 60px);
+    }
+    #masterTrasparente > div {
+        align-items: baseline !important; 
+    }
+}

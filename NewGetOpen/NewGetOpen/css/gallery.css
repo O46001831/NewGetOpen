@@ -1,0 +1,17 @@
+.horizontal-gallery-wrapper {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .horizontal-gallery {
+    display: flex;
+    height: 100%;
+  }
+  .horizontal-gallery img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
