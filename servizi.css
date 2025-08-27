@@ -1,0 +1,23 @@
+.secondMarginless {
+    margin: 0;
+    color: #7a7878;
+    font-size: min(10vw, 60px);
+}
+.elencop {    
+    margin: 20px 5vw;
+}
+.elencop > * {    
+    color: white;
+    text-align: justify;
+    font-family: Dosis;
+    font-size: clamp(16px, 1em + 1vw, 1.2em);
+    line-height: 1em
+}
+.boldAzure {
+    color: #30b6d2;
+    font-weight: 700;
+}
+
+.rowelencop {
+    color: white;
+}
